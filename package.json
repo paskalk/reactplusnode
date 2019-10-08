@@ -30,6 +30,7 @@
     "mssql": "^5.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "webpack": "^4.41.0"
+    "webpack": "^4.41.0",
+    "webpack-dev-server": "^3.8.1"
   }
 }
