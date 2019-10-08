@@ -13,10 +13,10 @@ const pool = new sql.ConnectionPool({
         encrypt: true 
     }
 })
-    //console.log(pool);
+    console.log('Port: '+ port);
 
 app.get('/', function(request, response){
-    response.sendFile(__dirname +'/index_to_db.html');
+    response.sendFile(__dirname +'/src/index.html');
 });
 
 app.get('/getName', function(request, response){

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const apiport = process.env.PORT || 3000;
+// const apiport = process.env.PORT || 3000;
 
 class Table extends React.Component {
   state = {
