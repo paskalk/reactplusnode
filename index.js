@@ -1,7 +1,8 @@
 var app = require('express')();
-
 const sql = require('mssql');
 require('dotenv').config();
+
+const port = process.env.PORT || 3000;
 
 const pool = new sql.ConnectionPool({
     user: process.env.SQL_USER,
@@ -26,7 +27,6 @@ app.get('/getName', function(request, response){
             .then(() => conn.close()))
 
 });
-
 
 app.get('/getMeasurements', function(request, response){
    
@@ -56,5 +56,5 @@ app.get('/getMeasurements', function(request, response){
 
 });
 
-app.listen('3000'); 
+app.listen(port); 
 

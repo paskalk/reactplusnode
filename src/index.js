@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+const apiport = process.env.PORT || 3000;
+
 class Table extends React.Component {
   state = {
     measurements: [],
@@ -13,7 +15,7 @@ class Table extends React.Component {
   componentDidMount() {
 
     this.refreshInterval = setInterval(() => {
-        fetch('http://localhost:3000/getMeasurements')
+        fetch(`http://localhost:${apiport}/getMeasurements`)
         .then(response => response.json())
         .then(response => this.setState({measurements: response}))
         .catch(err => console.error(err))
