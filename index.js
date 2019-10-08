@@ -1,18 +1,18 @@
 var app = require('express')();
 
 const sql = require('mssql');
-const express = require('express');
+require('dotenv').config();
 
 const pool = new sql.ConnectionPool({
-    user: 'sa',
-    password: 'techagri@2014',
-    server: 'localhost',
-    database: 'node',
+    user: process.env.SQL_USER,
+    password: process.env.SQL_PASSWORD,
+    server: process.env.SQL_SERVER,
+    database: process.env.SQL_DATABASE,
     options: {
         encrypt: true 
     }
 })
-    
+    //console.log(pool);
 
 app.get('/', function(request, response){
     response.sendFile(__dirname +'/index_to_db.html');
@@ -24,8 +24,6 @@ app.get('/getName', function(request, response){
         conn.query("SELECT * FROM measurements")
             .then((v) => console.log(v))
             .then(() => conn.close()))
-   
-
 
 });
 
@@ -37,8 +35,8 @@ app.get('/getMeasurements', function(request, response){
     conn.connect().then(function () {
 
         var req = new sql.Request(conn);
-        // req.query("SELECT top 5 * FROM measurements order by unix_timestamp desc").then(function (recordset) {
-        req.query("SELECT 1").then(function (recordset) {
+         req.query("SELECT top 5 * FROM measurements order by unix_timestamp desc").then(function (recordset) {
+        //req.query("SELECT 1").then(function (recordset) {
             
             conn.close();
             
@@ -55,8 +53,6 @@ app.get('/getMeasurements', function(request, response){
     .catch(function (err) {
         console.log(err);
     });
-
-    
 
 });
 

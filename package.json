@@ -26,6 +26,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "babel-preset": "^1.0.15",
     "classnames": "^2.2.6",
+    "dotenv": "^8.1.0",
     "mssql": "^5.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
