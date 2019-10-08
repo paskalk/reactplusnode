@@ -7,7 +7,6 @@ const htmlPlugin = new HtmlWebPackPlugin({
   filename: "./index.html"
 });
 
-//console.log(path.resolve(__dirname, '../'));
 
 module.exports = {
   module: {
