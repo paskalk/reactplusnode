@@ -13,10 +13,11 @@ const pool = new sql.ConnectionPool({
         encrypt: true 
     }
 })
-    console.log('Port: '+ port);
+    //console.log('Port: '+ port);
 
 app.get('/', function(request, response){
-    response.sendFile(__dirname +'/src/index.html');
+    // response.sendFile(__dirname +'/src/index.html');
+    response.send("Hello World");
 });
 
 app.get('/getName', function(request, response){
@@ -33,6 +34,7 @@ app.get('/getMeasurements', function(request, response){
     var conn = pool;
     
     conn.connect().then(function () {
+        console.log('connected');
 
         var req = new sql.Request(conn);
          req.query("SELECT top 5 * FROM measurements order by unix_timestamp desc").then(function (recordset) {
