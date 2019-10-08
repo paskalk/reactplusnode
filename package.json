@@ -23,6 +23,8 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "babel-preset": "^1.0.15",
     "classnames": "^2.2.6",
@@ -36,6 +38,7 @@
     "html-webpack-plugin": "^3.2.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
     "@babel/preset-react": "^7.0.0"
   }
 }
