@@ -29,6 +29,6 @@ module.exports = {
   plugins: [htmlPlugin],
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, '../'),
+    path: path.resolve(__dirname, './'),
   },
 };
