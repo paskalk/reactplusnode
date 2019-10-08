@@ -1,9 +1,13 @@
+var path = require('path');
+
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
   filename: "./index.html"
 });
+
+//console.log(path.resolve(__dirname, '../'));
 
 module.exports = {
   module: {
@@ -22,5 +26,9 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin],
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, '../'),
+  },
 };
