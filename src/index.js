@@ -15,7 +15,8 @@ class Table extends React.Component {
   componentDidMount() {
 
     this.refreshInterval = setInterval(() => {
-        fetch(`http://localhost:${apiport}/getMeasurements`)
+        // fetch(`http://localhost:${apiport}/getMeasurements`)
+        fetch('https://nodehkr.herokuapp.com/getMeasurements')
         .then(response => response.json())
         .then(response => this.setState({measurements: response}))
         .catch(err => console.error(err))
