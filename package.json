@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "heroku": "concurrently \"node server.js\" \"webpack --mode production\""
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset": "^1.0.15",
     "classnames": "^2.2.6",
+    "concurrently": "^5.0.0",
     "css-loader": "^3.2.0",
     "dotenv": "^8.1.0",
     "html-webpack-plugin": "^3.2.0",

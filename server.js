@@ -20,6 +20,9 @@ app.get('/', function(request, response){
     // response.send("Hello World");
 });
 
+app.get('*', function(request, response){
+    response.sendFile(__dirname +'/index.html');
+});
 app.get('/main.js', function(request, response){
     response.sendFile(__dirname +'/main.js');
     // response.send("Hello World");
