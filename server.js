@@ -16,8 +16,13 @@ const pool = new sql.ConnectionPool({
     //console.log('Port: '+ port);
 
 app.get('/', function(request, response){
-    // response.sendFile(__dirname +'/src/index.html');
-    response.send("Hello World");
+    response.sendFile(__dirname +'/index.html');
+    // response.send("Hello World");
+});
+
+app.get('/main.js', function(request, response){
+    response.sendFile(__dirname +'/main.js');
+    // response.send("Hello World");
 });
 
 app.get('/getName', function(request, response){
@@ -57,6 +62,6 @@ app.get('/getMeasurements', function(request, response){
     });
 
 });
-
+console.log(port + ': Port');
 app.listen(port); 
 
