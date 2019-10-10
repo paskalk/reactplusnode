@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "heroku": "concurrently \"node server.js\" \"webpack --mode production\""
+    "heroku": "concurrently \"webpack --mode production\" \"node server.js\" "
   },
   "keywords": [],
   "author": "",
