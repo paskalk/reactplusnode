@@ -2,7 +2,7 @@
   "name": "react_table",
   "version": "1.0.0",
   "description": "Search app using react",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
