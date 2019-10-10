@@ -40,7 +40,7 @@ class Table extends React.Component {
   render() {
     return (
         <React.Fragment>
-        <h1>Measurements on Heroku</h1>
+        <h1>Measurements on Heroku+Postgres</h1>
         
         <p>Average is: {this.state.average} and the header click count is: {this.state.clickCount}  </p>
         <table border='1' width='100%' >
