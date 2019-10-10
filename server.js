@@ -1,5 +1,6 @@
 var app = require('express')();
 const sql = require('mssql');
+const Pgpool = require('pg').Pool
 require('dotenv').config();
 
 const port = process.env.PORT || 3000;
@@ -13,7 +14,15 @@ const pool = new sql.ConnectionPool({
         encrypt: true 
     }
 })
-    //console.log('Port: '+ port);
+
+const pgpool = new Pgpool({
+  user: process.env.PSQL_USER,
+  host: process.env.PSQL_HOST,
+  database: process.env.PSQL_DATABASE,
+  password: process.env.PSQL_PASSWORD,
+  port: 5432,
+  ssl: true
+})
 
 app.get('/', function(request, response){
     console.log("/ requested");
@@ -36,7 +45,7 @@ app.get('/getName', function(request, response){
 
 });
 
-app.get('/getMeasurements', function(request, response){
+app.get('/getMeasurementsMSSQL', function(request, response){
    
     var conn = pool;
     
@@ -64,9 +73,23 @@ app.get('/getMeasurements', function(request, response){
     });
 
 });
+
+app.get('/getMeasurements', function(request, response){
+   
+    pgpool.query('SELECT * FROM measurements order by unix_timestamp desc fetch first 5 rows only', (error, results) => {
+        if (error) {
+          throw error
+        }
+        response.header("Access-Control-Allow-Origin", "*");
+        return response.json(results.rows);
+    })
+   
+});
+
 app.get('*', function(request, response){
     response.sendFile(__dirname +'/index.html');
 });
+
 console.log(port + ': Port');
 app.listen(port); 
 
