@@ -1,2 +1,2 @@
-server: nodemon server.js
+server: node server.js
 web: npm run build
